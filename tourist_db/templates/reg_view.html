@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+{% include 'black_theme.html' %}
+</head>
+<body>
+<table border="1" width="400">
+    <tr>
+        <td>Name</td>
+        <td>city</td>
+        <td>address</td>
+        <td>email</td>
+        <td>contact</td>
+        <td>Actions</td>
+    </tr>
+    {% for i in userdict %}
+    <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.city}}</td>
+        <td>{{i.address}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.contact}}</td>
+        <td><a href=" {% url 'reg_del' i.id %} ">delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Information</title>
+{% include 'black_theme.html' %}
+</head>
+<body>
+<form method="post" action="{% url 'paymentinfo_db' %}">
+    {% csrf_token %}
+    <table border="1" width="400" height="400">
+        {% for i in userdict %}
+        <input type="hidden" name="id" value="{{i.id}}">
+        <tr>
+            <td>customer id</td>
+            <td><input type="text" name="t1" value="{{i.customer_id}}"></td>
+        </tr>
+         <tr>
+            <td>amount</td>
+            <td><input type="text" name="t2" value="{{i.amount}}"></td>
+        </tr>
+         <tr>
+            <td>advance payment</td>
+            <td><input type="text" name="t3" value="{{i.advance_payment}}"></td>
+        </tr>
+         <tr>
+            <td>balance</td>
+            <td><input type="text" name="t4" value="{{i.balance}}"></td>
+        </tr>
+         <tr>
+            <td>payment mode</td>
+            <td><input type="text" name="t5" value="{{i.payment_mode}}"></td>
+        </tr>
+         <tr>
+            <td>payment status</td>
+            <td><input type="text" name="t6" value="{{i.payment_status}}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="Submit" name="submit"></td>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+</body>
+</html>
+

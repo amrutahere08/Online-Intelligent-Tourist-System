@@ -1,0 +1,43 @@
+<ul class="nav navbar-nav navbar-right">
+	<li><a href="{% url 'admin_home' %}">HOME</a></li>
+	<li><a href="{% url 'customerinfo_view' %}">USERS</a></li>
+	<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">PLACES <b class="caret"></b></a>
+		<ul class="dropdown-menu" style="background: #000; border: 1px solid rgba(212, 175, 55, 0.3);">
+			<li><a href="{% url 'placeinfo' %}" style="color: #c0c0c0;">Add Place</a></li>
+			<li><a href="{% url 'placeinfo_view' %}" style="color: #c0c0c0;">View Places</a></li>
+			<li><a href="{% url 'place_wise_year' %}" style="color: #c0c0c0;">Reports</a></li>
+		</ul>
+	</li>
+	<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">VEHICLES <b class="caret"></b></a>
+		<ul class="dropdown-menu" style="background: #000; border: 1px solid rgba(212, 175, 55, 0.3);">
+			<li><a href="{% url 'vehicleinfo' %}" style="color: #c0c0c0;">Add Vehicle</a></li>
+			<li><a href="{% url 'vehicleinfo_view' %}" style="color: #c0c0c0;">View Vehicles</a></li>
+		</ul>
+	</li>
+	<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">RESORTS <b class="caret"></b></a>
+		<ul class="dropdown-menu" style="background: #000; border: 1px solid rgba(212, 175, 55, 0.3);">
+			<li><a href="{% url 'resortinfo' %}" style="color: #c0c0c0;">Add Resort</a></li>
+			<li><a href="{% url 'resortinfo_view' %}" style="color: #c0c0c0;">View Resorts</a></li>
+		</ul>
+	</li>
+	<li><a href="{% url 'feedbackinfo_view' %}">FEEDBACK</a></li>
+	<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">ACCOUNT <b class="caret"></b></a>
+		<ul class="dropdown-menu" style="background: #000; border: 1px solid rgba(212, 175, 55, 0.3);">
+			<li><a href="{% url 'index' %}" style="color: #c0c0c0;">Logout</a></li>
+		</ul>
+	</li>
+</ul>
+<style>
+	.dropdown-menu>li>a:hover {
+		background: rgba(212, 175, 55, 0.2) !important;
+		color: #d4af37 !important;
+	}
+
+	.caret {
+		border-top-color: #c0c0c0 !important;
+	}
+</style>

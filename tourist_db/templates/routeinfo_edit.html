@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Route Information</title>
+{% include 'black_theme.html' %}
+</head>
+<body>
+ <form method="post" action="{% url 'routeinfo_db' %}">
+    {% csrf_token %}
+    <table border="1" width="400" height="400">
+        {% for i in userdict %}
+        <input type="hidden" name="id" value="{{i.id}}">
+        <tr>
+            <td>place id</td>
+            <td><input type="text" name="t1" value="{{i.place_id}}"></td>
+        </tr>
+        <tr>
+            <td>transport type</td>
+            <td><input type="text" name="t2" value="{{i.transport_type}}"></td>
+        </tr>
+        <tr>
+            <td>from place</td>
+            <td><input type="text" name="t3" value="{{i.from_place}}"></td>
+        </tr>
+        <tr>
+            <td>destination</td>
+            <td><input type="text" name="t4" value="{{i.destination}}"></td>
+        </tr>
+        <tr>
+            <td>via</td>
+            <td><input type="text" name="t5" value="{{i.via}}"></td>
+        </tr>
+        <tr>
+            <td>no of km</td>
+            <td><input type="text" name="t6" value="{{i.no_of_km}}"></td>
+        </tr>
+        <tr>
+            <td>remarks</td>
+            <td><input type="text" name="t7" value="{{i.remarks}}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="Submit" name="submit"></td>
+        </tr>
+        {% endfor %}
+    </table>
+ </form>
+</body>
+</html>
+

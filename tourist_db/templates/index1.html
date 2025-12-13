@@ -1,0 +1,627 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>Intelligent Travel Guide</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Playfair+Display:400,700|Montserrat:300,400,500,600,700"
+		rel="stylesheet">
+	<style>
+		@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				transform: translateY(40px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes slideIn {
+			from {
+				opacity: 0;
+				transform: translateX(-30px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
+
+		@keyframes glow {
+
+			0%,
+			100% {
+				box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+			}
+
+			50% {
+				box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+			}
+		}
+
+		@keyframes shimmer {
+			0% {
+				background-position: -1000px 0;
+			}
+
+			100% {
+				background-position: 1000px 0;
+			}
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			background: #000000;
+			background-image:
+				linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.85)),
+				url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80');
+			background-size: cover;
+			background-attachment: fixed;
+			background-position: center;
+			color: #e8e8e8;
+			font-family: 'Montserrat', sans-serif;
+			min-height: 100vh;
+		}
+
+		.header {
+			background: rgba(0, 0, 0, 0.95);
+			padding: 15px 0;
+			border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+			backdrop-filter: blur(10px);
+			animation: slideIn 0.6s ease-out;
+		}
+
+		.header a {
+			color: #d4af37;
+			text-decoration: none;
+			margin: 0 20px;
+			font-weight: 500;
+			transition: all 0.3s ease;
+			font-size: 14px;
+			letter-spacing: 1px;
+		}
+
+		.header a:hover {
+			color: #fff;
+			text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+		}
+
+		.navbar {
+			background: rgba(0, 0, 0, 0.95) !important;
+			border: none !important;
+			margin-bottom: 0 !important;
+			border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+			backdrop-filter: blur(10px);
+		}
+
+		.navbar-brand {
+			color: #d4af37 !important;
+			font-size: 26px !important;
+			font-weight: 700 !important;
+			font-family: 'Playfair Display', serif;
+			letter-spacing: 2px;
+			transition: all 0.3s ease;
+		}
+
+		.navbar-brand:hover {
+			color: #fff !important;
+			text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+		}
+
+		.navbar-default .navbar-nav>li>a {
+			color: #c0c0c0 !important;
+			font-weight: 500;
+			letter-spacing: 1px;
+			transition: all 0.3s ease;
+		}
+
+		.navbar-default .navbar-nav>li>a:hover {
+			color: #d4af37 !important;
+		}
+
+		.hero-section {
+			background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
+				url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920&q=80');
+			background-size: cover;
+			background-position: center;
+			padding: 140px 20px;
+			text-align: center;
+			color: white;
+			position: relative;
+			overflow: hidden;
+			animation: fadeInUp 1s ease-out;
+		}
+
+		.hero-section::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 2px;
+			background: linear-gradient(90deg, transparent, #d4af37, transparent);
+		}
+
+		.hero-section h1 {
+			font-size: 62px;
+			font-weight: 700;
+			margin-bottom: 25px;
+			font-family: 'Playfair Display', serif;
+			text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.8);
+			letter-spacing: 3px;
+			animation: fadeInUp 1.2s ease-out;
+		}
+
+		.hero-section p {
+			font-size: 20px;
+			margin-bottom: 40px;
+			letter-spacing: 2px;
+			font-weight: 300;
+			animation: fadeInUp 1.4s ease-out;
+		}
+
+		.features-section {
+			padding: 100px 20px;
+			background: #000;
+		}
+
+		.feature-card {
+			background: linear-gradient(135deg, rgba(20, 20, 20, 0.95), rgba(10, 10, 10, 0.95));
+			border-radius: 0;
+			padding: 50px 35px;
+			margin-bottom: 30px;
+			text-align: center;
+			transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+			border: 1px solid rgba(212, 175, 55, 0.2);
+			height: 100%;
+			position: relative;
+			overflow: hidden;
+			animation: fadeInUp 0.8s ease-out;
+		}
+
+		.feature-card::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+			transition: left 0.6s ease;
+		}
+
+		.feature-card:hover::before {
+			left: 100%;
+		}
+
+		.feature-card:hover {
+			transform: translateY(-10px);
+			border-color: #d4af37;
+			box-shadow: 0 20px 60px rgba(212, 175, 55, 0.2);
+		}
+
+		.feature-card i {
+			font-size: 56px;
+			color: #d4af37;
+			margin-bottom: 25px;
+			transition: all 0.4s ease;
+		}
+
+		.feature-card:hover i {
+			transform: scale(1.15);
+			filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
+		}
+
+		.feature-card h3 {
+			color: #fff;
+			font-size: 24px;
+			font-weight: 600;
+			margin-bottom: 18px;
+			font-family: 'Playfair Display', serif;
+			letter-spacing: 1px;
+		}
+
+		.feature-card p {
+			color: #b0b0b0;
+			font-size: 15px;
+			line-height: 1.8;
+			font-weight: 300;
+		}
+
+		.feature-card:nth-child(1) {
+			animation-delay: 0.2s;
+		}
+
+		.feature-card:nth-child(2) {
+			animation-delay: 0.4s;
+		}
+
+		.feature-card:nth-child(3) {
+			animation-delay: 0.6s;
+		}
+
+		.modal-backdrop {
+			background-color: rgba(0, 0, 0, 0.95);
+		}
+
+		.login-modal .modal-dialog {
+			margin: 50px auto;
+			animation: fadeInUp 0.4s ease-out;
+		}
+
+		.login-modal .modal-content {
+			background: linear-gradient(135deg, #0a0a0a 0%, #000000 100%);
+			border: 1px solid rgba(212, 175, 55, 0.3);
+			border-radius: 0;
+			box-shadow: 0 20px 80px rgba(0, 0, 0, 0.9);
+		}
+
+		.login-modal .modal-header {
+			border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+			padding: 30px 35px;
+			background: rgba(212, 175, 55, 0.05);
+		}
+
+		.login-modal .modal-body {
+			padding: 40px 35px;
+		}
+
+		.login-modal h3 {
+			color: #d4af37;
+			margin: 0;
+			font-size: 26px;
+			font-weight: 600;
+			font-family: 'Playfair Display', serif;
+			letter-spacing: 1px;
+		}
+
+		.login-modal .close {
+			color: #d4af37;
+			opacity: 0.8;
+			font-size: 32px;
+			font-weight: 300;
+			transition: all 0.3s ease;
+		}
+
+		.login-modal .close:hover {
+			opacity: 1;
+			transform: rotate(90deg);
+		}
+
+		.login-modal label {
+			color: #c0c0c0;
+			font-weight: 500;
+			margin-bottom: 10px;
+			display: block;
+			letter-spacing: 1px;
+			font-size: 13px;
+		}
+
+		.login-modal input[type="text"],
+		.login-modal input[type="password"],
+		.login-modal input[type="email"],
+		.login-modal input[type="file"] {
+			background: rgba(0, 0, 0, 0.6);
+			border: 1px solid rgba(212, 175, 55, 0.3);
+			color: #fff;
+			padding: 15px 20px;
+			border-radius: 0;
+			width: 100%;
+			margin-bottom: 25px;
+			font-size: 15px;
+			transition: all 0.3s ease;
+			font-weight: 300;
+		}
+
+		.login-modal input:focus {
+			outline: none;
+			border-color: #d4af37;
+			box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+			background: rgba(0, 0, 0, 0.8);
+		}
+
+		.login-modal .form-group {
+			margin-bottom: 0;
+		}
+
+		.login-modal .row {
+			margin-left: -10px;
+			margin-right: -10px;
+		}
+
+		.login-modal .row>div {
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+
+		.login-modal .btn-primary {
+			background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+			border: none;
+			padding: 16px 30px;
+			border-radius: 0;
+			font-weight: 600;
+			width: 100%;
+			font-size: 16px;
+			margin-top: 20px;
+			transition: all 0.4s ease;
+			letter-spacing: 2px;
+			color: #000;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.login-modal .btn-primary::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+			transition: left 0.6s ease;
+		}
+
+		.login-modal .btn-primary:hover::before {
+			left: 100%;
+		}
+
+		.login-modal .btn-primary:hover {
+			background: linear-gradient(135deg, #fff 0%, #d4af37 100%);
+			transform: translateY(-2px);
+			box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+		}
+
+		.login-modal .error-message {
+			color: #ff6b6b;
+			margin-top: 20px;
+			text-align: center;
+			padding: 12px;
+			background: rgba(255, 107, 107, 0.1);
+			border: 1px solid rgba(255, 107, 107, 0.3);
+			animation: fadeInUp 0.3s ease;
+		}
+
+		.footer {
+			background: rgba(0, 0, 0, 0.98);
+			padding: 40px 0;
+			text-align: center;
+			border-top: 1px solid rgba(212, 175, 55, 0.3);
+			margin-top: 100px;
+		}
+
+		.footer p {
+			color: #808080;
+			margin: 0;
+			letter-spacing: 1px;
+			font-size: 13px;
+		}
+
+		.btn-get-started {
+			background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+			color: #000;
+			padding: 18px 55px;
+			border-radius: 0;
+			font-size: 16px;
+			font-weight: 700;
+			border: none;
+			transition: all 0.4s ease;
+			letter-spacing: 3px;
+			box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+			position: relative;
+			overflow: hidden;
+			animation: glow 2s ease-in-out infinite;
+		}
+
+		.btn-get-started::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+			animation: shimmer 3s infinite;
+		}
+
+		.btn-get-started:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 15px 50px rgba(212, 175, 55, 0.5);
+			background: linear-gradient(135deg, #fff 0%, #d4af37 100%);
+		}
+	</style>
+{% include 'black_theme.html' %}
+</head>
+
+<body>
+	<div class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12" style="text-align: right;">
+					<a href="#" data-toggle="modal" data-target="#loginModal"><i class="fa fa-user"></i> LOG IN</a>
+					<a href="#" data-toggle="modal" data-target="#signupModal"><i class="fa fa-pencil-square-o"></i>
+						SIGN UP</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar" style="background: #d4af37;"></span>
+					<span class="icon-bar" style="background: #d4af37;"></span>
+					<span class="icon-bar" style="background: #d4af37;"></span>
+				</button>
+				<a class="navbar-brand" href="{% url 'index' %}"><i class="fa fa-compass"></i> TRAVEL GUIDE</a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="{% url 'index' %}">HOME</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="hero-section">
+		<div class="container">
+			<h1>DISCOVER THE WORLD</h1>
+			<p>EMBARK ON EXTRAORDINARY JOURNEYS</p>
+			<button class="btn-get-started" data-toggle="modal" data-target="#loginModal">
+				START YOUR ADVENTURE
+			</button>
+		</div>
+	</div>
+
+	<div class="features-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="feature-card">
+						<i class="fa fa-map-marker"></i>
+						<h3>Exotic Destinations</h3>
+						<p>Explore breathtaking locations across the globe with curated travel experiences</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="feature-card">
+						<i class="fa fa-hotel"></i>
+						<h3>Luxury Accommodations</h3>
+						<p>Stay in world-class resorts and hotels with premium amenities and services</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="feature-card">
+						<i class="fa fa-car"></i>
+						<h3>Premium Transport</h3>
+						<p>Travel in comfort with our exclusive transportation and transfer services</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Login Modal -->
+	<div class="modal fade login-modal" id="loginModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h3 class="modal-title"><i class="fa fa-sign-in"></i> ACCOUNT LOGIN</h3>
+				</div>
+				<div class="modal-body">
+					<form action="{% url 'login' %}" method="post">
+						{% csrf_token %}
+						<div class="form-group">
+							<label>USERNAME</label>
+							<input type="text" name="t1" placeholder="Enter your username" required>
+						</div>
+						<div class="form-group">
+							<label>PASSWORD</label>
+							<input type="password" name="t2" placeholder="Enter your password" required>
+						</div>
+						<button type="submit" class="btn btn-primary">LOGIN</button>
+						{% if msg %}
+						<div class="error-message">{{ msg }}</div>
+						{% endif %}
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Signup Modal -->
+	<div class="modal fade login-modal" id="signupModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h3 class="modal-title"><i class="fa fa-user-plus"></i> CREATE ACCOUNT</h3>
+				</div>
+				<div class="modal-body">
+					<form action="{% url 'customerinfo' %}" method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>FULL NAME</label>
+									<input type="text" name="t2" placeholder="Enter your full name" required
+										pattern="[A-Za-z\s]+">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>AADHAR NUMBER</label>
+									<input type="text" name="t3" placeholder="Enter Aadhar number" required>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>AADHAR DOCUMENT</label>
+							<input type="file" name="myfile" required>
+						</div>
+						<div class="form-group">
+							<label>ADDRESS</label>
+							<input type="text" name="t4" placeholder="Enter your address" required>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>CONTACT NUMBER</label>
+									<input type="text" name="t5" placeholder="10-digit mobile number" required
+										pattern="[6-9]{1}[0-9]{9}">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>EMAIL ADDRESS</label>
+									<input type="email" name="t6" placeholder="Enter your email" required>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>PASSWORD</label>
+							<input type="password" name="t7" placeholder="Create a password" required>
+						</div>
+						<button type="submit" class="btn btn-primary">CREATE ACCOUNT</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<div class="container">
+			<p>© 2024 INTELLIGENT TRAVEL GUIDE. ALL RIGHTS RESERVED</p>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.js' %}"></script>
+	<script>
+		window.addEventListener('scroll', function () {
+			const scrolled = window.pageYOffset;
+			const hero = document.querySelector('.hero-section');
+			if (hero) {
+				hero.style.transform = 'translateY(' + (scrolled * 0.4) + 'px)';
+				hero.style.opacity = 1 - (scrolled * 0.002);
+			}
+		});
+	</script>
+</body>
+
+</html>

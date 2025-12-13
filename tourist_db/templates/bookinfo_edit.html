@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Information</title>
+{% include 'black_theme.html' %}
+</head>
+<body>
+<form method="post" action="{% url 'bookinfo_db' %}">
+    {% csrf_token %}
+    <table border="1" width="400" height="400" align="center">
+        {% for i in userdict %}
+        <input type="hidden" name="id" value="{{i.id}}">
+        <tr>
+            <td>customer id</td>
+            <td><input type="text" name="t1" value="{{i.customer_id}}"></td>
+        </tr>
+        <tr>
+            <td>package type</td>
+            <td><input type="text" name="t2" value="{{i.package_type}}"></td>
+        </tr>
+        <tr>
+            <td>package amount</td>
+            <td><input type="text" name="t3" value="{{i.package_amount}}"></td>
+        </tr>
+        <tr>
+            <td>book date</td>
+            <td><input type="date" name="t4" value="{{i.book_date}}"></td>
+        </tr>
+        <tr>
+            <td>book time</td>
+            <td><input type="text" name="t5" value="{{i.book_time}}"></td>
+        </tr>
+        <tr>
+            <td>no_of_members</td>
+            <td><input type="text" name="t6" value="{{i.no_of_members}}"></td>
+        </tr>
+        <tr>
+            <td>total</td>
+            <td><input type="text" name="t7" value="{{i.total}}"></td>
+        </tr>
+        <tr>
+            <td>status</td>
+            <td><input type="text" name="t8" value="{{i.status}}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="Submit" name="submit"></td>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+</body>
+</html>
+

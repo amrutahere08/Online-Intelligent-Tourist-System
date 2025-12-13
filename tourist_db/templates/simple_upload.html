@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+{% include 'black_theme.html' %}
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p> Name:<input type="text" name="t1"></p>
+    <p> Upload photo:<input type="file" name="myfile"></p>
+    <button type="submit">upload</button>
+</form>
+</body>
+</html>
+

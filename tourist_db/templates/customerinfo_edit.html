@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Information</title>
+{% include 'black_theme.html' %}
+</head>
+<body>
+<form method="post" action="{% url 'customerinfo_db' %}">
+    {% csrf_token %}
+    <table border="1" width="400" height="400" align="center">
+        {% for i in userdict %}
+        <input type="hidden" name="id" value="{{i.id}}">
+
+        <tr>
+            <td>customer name</td>
+            <td><input type="text" name="t2" value="{{i.customer_name}}"></td>
+        </tr>
+        <tr>
+            <td>aadhar no</td>
+            <td><input type="text" name="t3" value="{{i.aadhar_no}}"></td>
+        </tr>
+        <tr>
+            <td>address</td>
+            <td><input type="text" name="t5" value="{{i.address}}"></td>
+        </tr>
+        <tr>
+            <td>contact no</td>
+            <td><input type="text" name="t6" value="{{i.contact_no}}"></td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td><input type="text" name="t7" value="{{i.email}}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="Submit" name="submit"></td>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+</body>
+</html>
+

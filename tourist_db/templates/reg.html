@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hyperlink page</title>
+{% include 'black_theme.html' %}
+</head>
+<body>
+<h1> Registration Here </h1>
+<form method="post">
+    {% csrf_token %}
+    <table border="1" width="400" height="400">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="t1" required pattern="[A-Za-z\s]+" title="enter characters only></td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td><input type="text" name="t2"></td>
+        </tr>
+         <tr>
+            <td>Address</td>
+            <td><input type="text" name="t3"></td>
+        </tr>
+         <tr>
+            <td>Email</td>
+            <td><input type="text" name="t4"></td>
+        </tr>
+         <tr>
+            <td>Contact</td>
+            <td><input type="text" name="t5"></td>
+        </tr>
+         <tr>
+            <td></td>
+            <td><input type="Submit"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+

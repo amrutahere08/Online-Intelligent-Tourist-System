@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image upload view</title>
+{% include 'black_theme.html' %}
+</head>
+<body>
+<table border="1" width="400">
+    <tr>
+        <td>Name</td>
+        <td>Image</td>
+    </tr>
+    {% for i in userdict %}
+        <tr>
+            <td>{{i.name}}</td>
+            <td><img src="{{i.image.url}}" width="100" height="100"></td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
+

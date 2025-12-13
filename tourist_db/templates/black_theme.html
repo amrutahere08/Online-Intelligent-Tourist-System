@@ -1,0 +1,619 @@
+<style>
+    /* Full Black Aesthetic Theme - Professional Styling */
+    body {
+        background: #000 !important;
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.9)),
+            url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80') !important;
+        background-size: cover !important;
+        background-attachment: fixed !important;
+        color: #e8e8e8 !important;
+        font-family: 'Montserrat', sans-serif !important;
+    }
+
+    /* Beautiful Travel Hero Banner */
+    .banner1 {
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%),
+            url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-attachment: fixed !important;
+        min-height: 400px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-bottom: 3px solid #d4af37 !important;
+        position: relative !important;
+        overflow: hidden !important;
+    }
+
+    .banner1::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%) !important;
+        pointer-events: none !important;
+    }
+
+    .wthree_banner1_info {
+        text-align: center !important;
+        padding: 60px 20px !important;
+        position: relative !important;
+        z-index: 2 !important;
+    }
+
+    .wthree_banner1_info h2,
+    .wthree_banner1_info h3 {
+        color: #fff !important;
+        font-family: 'Playfair Display', serif !important;
+        font-weight: 700 !important;
+        letter-spacing: 3px !important;
+        text-transform: uppercase !important;
+        margin-bottom: 20px !important;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8) !important;
+        animation: fadeInUp 1s ease-out !important;
+    }
+
+    .wthree_banner1_info h2 {
+        font-size: 48px !important;
+        color: #d4af37 !important;
+    }
+
+    .wthree_banner1_info h3 {
+        font-size: 32px !important;
+    }
+
+    .wthree_banner1_info p {
+        color: #e8e8e8 !important;
+        font-size: 18px !important;
+        letter-spacing: 1px !important;
+        margin-top: 15px !important;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8) !important;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .header {
+        background: rgba(0, 0, 0, 0.98) !important;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.3) !important;
+    }
+
+    .banner {
+        background: transparent !important;
+    }
+
+    .navbar {
+        background: rgba(0, 0, 0, 0.98) !important;
+        border: none !important;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.3) !important;
+    }
+
+    .navbar-brand {
+        color: #d4af37 !important;
+        font-family: 'Playfair Display', serif !important;
+        letter-spacing: 2px !important;
+    }
+
+    .navbar-default .navbar-nav>li>a {
+        color: #c0c0c0 !important;
+        letter-spacing: 1px !important;
+    }
+
+    .navbar-default .navbar-nav>li>a:hover {
+        color: #d4af37 !important;
+    }
+
+    .coaching_section {
+        background: transparent !important;
+        padding: 60px 0 !important;
+    }
+
+    .w3l_header,
+    .w3_agileits_header {
+        color: #d4af37 !important;
+        font-family: 'Playfair Display', serif !important;
+        letter-spacing: 2px !important;
+        text-transform: uppercase !important;
+        margin-bottom: 30px !important;
+    }
+
+    .sub_para_agile {
+        color: #b0b0b0 !important;
+    }
+
+    /* Prevent horizontal scrolling */
+    html,
+    body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+    }
+
+    /* Table Container - Responsive */
+    .w3_agile_team_grid_left,
+    .coaching_section {
+        overflow-x: auto !important;
+        max-width: 100% !important;
+    }
+
+    /* Professional Table Styling */
+    table {
+        background: rgba(15, 15, 15, 0.95) !important;
+        border: 1px solid rgba(212, 175, 55, 0.3) !important;
+        border-collapse: collapse !important;
+        width: 100% !important;
+        margin: 20px auto !important;
+        max-width: 100% !important;
+        table-layout: auto !important;
+        font-size: 12px !important;
+    }
+
+    table th {
+        background: rgba(212, 175, 55, 0.15) !important;
+        color: #d4af37 !important;
+        padding: 10px 8px !important;
+        text-align: center !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.5px !important;
+        text-transform: uppercase !important;
+        font-size: 11px !important;
+        border: 1px solid rgba(212, 175, 55, 0.3) !important;
+        white-space: nowrap !important;
+        min-width: 80px !important;
+        max-width: 150px !important;
+    }
+
+    table td {
+        color: #c0c0c0 !important;
+        padding: 10px 8px !important;
+        font-weight: 400 !important;
+        letter-spacing: 0.3px !important;
+        border: 1px solid rgba(212, 175, 55, 0.1) !important;
+        vertical-align: middle !important;
+        font-size: 11px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        max-width: 150px !important;
+    }
+
+    table tr:hover {
+        background: rgba(212, 175, 55, 0.05) !important;
+    }
+
+    table tr:last-child td {
+        border-bottom: 1px solid rgba(212, 175, 55, 0.1) !important;
+    }
+
+    /* ULTRA STRONG Override - Remove ALL Blue Table Headers */
+    table[border] th,
+    table[border="1"] th,
+    table[width] th,
+    table thead th,
+    table thead td,
+    table th,
+    .table thead th,
+    .table-striped thead th,
+    .table-bordered thead th,
+    .table>thead>tr>th,
+    .table>thead>tr>td,
+    th[bgcolor],
+    td[bgcolor],
+    th,
+    thead th,
+    thead td {
+        background: rgba(212, 175, 55, 0.15) !important;
+        background-color: rgba(212, 175, 55, 0.15) !important;
+        color: #d4af37 !important;
+        text-align: center !important;
+        border: 1px solid rgba(212, 175, 55, 0.3) !important;
+        padding: 15px 20px !important;
+        font-weight: 600 !important;
+        letter-spacing: 1px !important;
+        text-transform: uppercase !important;
+        font-size: 13px !important;
+    }
+
+    /* Force remove inline bgcolor attribute */
+    th[bgcolor="blue"],
+    th[bgcolor="#0000FF"],
+    th[bgcolor*="blue"],
+    td[bgcolor="blue"],
+    td[bgcolor="#0000FF"],
+    td[bgcolor*="blue"] {
+        background: rgba(212, 175, 55, 0.15) !important;
+        background-color: rgba(212, 175, 55, 0.15) !important;
+        color: #d4af37 !important;
+    }
+
+    /* Center align all table cells */
+    table td,
+    table tbody td,
+    table tbody tr td,
+    .table td,
+    .table tbody td,
+    td {
+        text-align: center !important;
+        vertical-align: middle !important;
+        padding: 15px 20px !important;
+    }
+
+    /* Override Bootstrap striping */
+    .table-striped>tbody>tr:nth-of-type(odd),
+    .table-striped tbody tr:nth-of-type(odd),
+    table tbody tr:nth-of-type(odd) {
+        background: rgba(212, 175, 55, 0.03) !important;
+    }
+
+    .table-striped>tbody>tr:nth-of-type(even),
+    .table-striped tbody tr:nth-of-type(even),
+    table tbody tr:nth-of-type(even) {
+        background: transparent !important;
+    }
+
+    /* Override Bootstrap primary/info/success colors */
+    .table-primary,
+    .table-info,
+    .table-success,
+    .table-warning,
+    .table-danger,
+    .bg-primary,
+    .bg-info,
+    .bg-success,
+    .bg-warning,
+    .bg-danger,
+    [class*="bg-primary"],
+    [class*="bg-info"],
+    [class*="table-primary"],
+    [class*="table-info"] {
+        background: rgba(212, 175, 55, 0.15) !important;
+        background-color: rgba(212, 175, 55, 0.15) !important;
+        color: #d4af37 !important;
+    }
+
+    /* Override any inline styles */
+    table[style*="background"],
+    th[style*="background"],
+    td[style*="background"] {
+        background: rgba(15, 15, 15, 0.95) !important;
+    }
+
+    table thead[style*="background"],
+    table thead th[style*="background"],
+    table thead td[style*="background"] {
+        background: rgba(212, 175, 55, 0.15) !important;
+    }
+
+    /* Form Styling - Better Alignment */
+    form {
+        max-width: 100% !important;
+    }
+
+    form table {
+        padding: 0 !important;
+        border: none !important;
+        background: transparent !important;
+        margin: 30px auto !important;
+    }
+
+    form table tr {
+        background: transparent !important;
+    }
+
+    form table tr:hover {
+        background: transparent !important;
+    }
+
+    form table td {
+        background: transparent !important;
+        border: none !important;
+        padding: 12px 20px !important;
+    }
+
+    form table td:first-child {
+        width: 200px !important;
+        text-align: right !important;
+        padding-right: 20px !important;
+        font-weight: 500 !important;
+        color: #c0c0c0 !important;
+        text-transform: capitalize !important;
+    }
+
+    form table td:last-child {
+        text-align: left !important;
+    }
+
+    /* Input Field Styling */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="date"],
+    textarea,
+    select {
+        background: rgba(0, 0, 0, 0.6) !important;
+        border: 1px solid rgba(212, 175, 55, 0.3) !important;
+        color: #fff !important;
+        padding: 12px 15px !important;
+        border-radius: 0 !important;
+        font-weight: 300 !important;
+        width: 100% !important;
+        max-width: 400px !important;
+        transition: all 0.3s ease !important;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    input[type="number"]:focus,
+    input[type="date"]:focus,
+    textarea:focus,
+    select:focus {
+        outline: none !important;
+        border-color: #d4af37 !important;
+        box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1) !important;
+        background: rgba(0, 0, 0, 0.8) !important;
+    }
+
+    /* File Input Styling */
+    input[type="file"] {
+        background: rgba(0, 0, 0, 0.6) !important;
+        border: 1px solid rgba(212, 175, 55, 0.3) !important;
+        color: #d4af37 !important;
+        padding: 10px 15px !important;
+        border-radius: 0 !important;
+        width: 100% !important;
+        max-width: 400px !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+    }
+
+    input[type="file"]:hover {
+        border-color: #d4af37 !important;
+        background: rgba(0, 0, 0, 0.8) !important;
+    }
+
+    input[type="file"]::file-selector-button {
+        background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%) !important;
+        border: none !important;
+        color: #000 !important;
+        padding: 8px 20px !important;
+        border-radius: 0 !important;
+        font-weight: 600 !important;
+        letter-spacing: 1px !important;
+        cursor: pointer !important;
+        margin-right: 15px !important;
+        transition: all 0.3s ease !important;
+    }
+
+    input[type="file"]::file-selector-button:hover {
+        background: linear-gradient(135deg, #fff 0%, #d4af37 100%) !important;
+    }
+
+    textarea {
+        min-height: 100px !important;
+        resize: vertical !important;
+    }
+
+    select {
+        cursor: pointer !important;
+    }
+
+    /* Button Styling - ALL BUTTONS */
+    input[type="submit"],
+    input[type="button"],
+    input[type="reset"],
+    button,
+    button[type="submit"],
+    button[type="button"],
+    .btn,
+    .btn-primary,
+    .btn-default,
+    .btn-success,
+    .btn-info,
+    .btn-warning,
+    .btn-danger,
+    a.btn {
+        background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%) !important;
+        border: none !important;
+        color: #000 !important;
+        padding: 12px 28px !important;
+        border-radius: 0 !important;
+        font-weight: 600 !important;
+        letter-spacing: 2px !important;
+        transition: all 0.4s ease !important;
+        cursor: pointer !important;
+        text-transform: uppercase !important;
+        font-size: 13px !important;
+        display: inline-block !important;
+        text-decoration: none !important;
+        text-align: center !important;
+    }
+
+    input[type="submit"]:hover,
+    input[type="button"]:hover,
+    input[type="reset"]:hover,
+    button:hover,
+    button[type="submit"]:hover,
+    button[type="button"]:hover,
+    .btn:hover,
+    .btn-primary:hover,
+    .btn-default:hover,
+    .btn-success:hover,
+    .btn-info:hover,
+    .btn-warning:hover,
+    .btn-danger:hover,
+    a.btn:hover {
+        background: linear-gradient(135deg, #fff 0%, #d4af37 100%) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4) !important;
+        color: #000 !important;
+    }
+
+    /* Search Bar Styling */
+    input[type="search"],
+    .search-input {
+        background: rgba(0, 0, 0, 0.6) !important;
+        border: 1px solid rgba(212, 175, 55, 0.3) !important;
+        color: #fff !important;
+        padding: 12px 20px !important;
+        border-radius: 0 !important;
+        width: 100% !important;
+        max-width: 500px !important;
+        margin: 20px auto !important;
+        display: block !important;
+    }
+
+    /* Data Display Cards */
+    .data-card {
+        background: rgba(15, 15, 15, 0.95) !important;
+        border: 1px solid rgba(212, 175, 55, 0.2) !important;
+        padding: 25px !important;
+        margin-bottom: 20px !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .data-card:hover {
+        border-color: #d4af37 !important;
+        box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2) !important;
+    }
+
+    /* List Styling */
+    ul,
+    ol {
+        color: #c0c0c0 !important;
+    }
+
+    li {
+        padding: 8px 0 !important;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.1) !important;
+    }
+
+    li:last-child {
+        border-bottom: none !important;
+    }
+
+    /* Footer */
+    .wthree_copy_right,
+    .footer_agile_w3ls {
+        background: rgba(0, 0, 0, 0.98) !important;
+        border-top: 1px solid rgba(212, 175, 55, 0.3) !important;
+        color: #808080 !important;
+    }
+
+    .wthree_copy_right p {
+        color: #808080 !important;
+        letter-spacing: 1px !important;
+    }
+
+    /* Content Containers */
+    .w3_agile_team_grid_left {
+        background: rgba(15, 15, 15, 0.95) !important;
+        border: 1px solid rgba(212, 175, 55, 0.2) !important;
+        padding: 40px !important;
+        margin: 0 auto !important;
+        max-width: 1200px !important;
+    }
+
+    .w3_agile_team_grid {
+        max-width: 1200px !important;
+        margin: 0 auto !important;
+    }
+
+    /* Modal Styling */
+    .modal-content {
+        background: linear-gradient(135deg, #0a0a0a 0%, #000000 100%) !important;
+        border: 1px solid rgba(212, 175, 55, 0.3) !important;
+        color: #e8e8e8 !important;
+    }
+
+    .modal-header {
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2) !important;
+        background: rgba(212, 175, 55, 0.05) !important;
+    }
+
+    .close {
+        color: #d4af37 !important;
+        opacity: 0.8 !important;
+    }
+
+    .agileinfo_sign {
+        color: #d4af37 !important;
+        font-family: 'Playfair Display', serif !important;
+    }
+
+    /* Image Styling */
+    img {
+        border: 1px solid rgba(212, 175, 55, 0.2) !important;
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Link Styling */
+    a {
+        color: #d4af37 !important;
+        transition: all 0.3s ease !important;
+    }
+
+    a:hover {
+        color: #fff !important;
+        text-decoration: none !important;
+    }
+
+    /* Container Alignment */
+    .container {
+        max-width: 1200px !important;
+    }
+
+    /* Responsive Tables */
+    @media (max-width: 768px) {
+        table {
+            font-size: 12px !important;
+        }
+
+        table th,
+        table td {
+            padding: 10px !important;
+        }
+
+        form table td:first-child {
+            width: auto !important;
+            text-align: left !important;
+            display: block !important;
+            padding-bottom: 5px !important;
+        }
+
+        form table td:last-child {
+            display: block !important;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="file"],
+        textarea,
+        select {
+            max-width: 100% !important;
+        }
+
+        .wthree_banner1_info h2 {
+            font-size: 32px !important;
+        }
+
+        .wthree_banner1_info h3 {
+            font-size: 24px !important;
+        }
+    }
+</style>
+<link href="//fonts.googleapis.com/css?family=Playfair+Display:400,700|Montserrat:300,400,500,600,700" rel="stylesheet">

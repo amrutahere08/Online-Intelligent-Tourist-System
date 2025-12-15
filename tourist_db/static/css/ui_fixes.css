@@ -1,0 +1,89 @@
+/* Image Fit and Responsive Fixes */
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Place and Resort Images - Fit in boxes */
+.place-image, .resort-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Card Images */
+.card img, .dashboard-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Gallery Images */
+.gallery img, .view img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Remove empty space at top */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    margin-bottom: 0 !important;
+}
+
+/* Hide hamburger menu button */
+.navbar-toggle {
+    display: none !important;
+}
+
+/* Make navbar always visible */
+.navbar-collapse {
+    display: block !important;
+    height: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+}
+
+.navbar-collapse.collapse {
+    display: block !important;
+}
+
+/* Remove top padding/margin from first content */
+.dashboard-header, .container:first-of-type {
+    margin-top: 0 !important;
+    padding-top: 2em !important;
+}
+
+/* Ensure content starts immediately after navbar */
+.banner1, .main-content {
+    margin-top: 0 !important;
+}
+
+/* Table images */
+table img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* Responsive images in listings */
+.listing-image, .item-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Fix for uploaded images in forms */
+input[type="file"] + img {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+}

@@ -33,6 +33,8 @@ class ResortInfo(models.Model):
     package_type=models.CharField(max_length=100)
     charges=models.CharField(max_length=100)
     photo=models.FileField(upload_to='documents/')
+    rating=models.DecimalField(max_digits=3, decimal_places=2, default=0.0, null=True, blank=True)
+    total_ratings=models.IntegerField(default=0, null=True, blank=True)
 
 
 class CustomerInfo(models.Model):
@@ -75,6 +77,8 @@ class PlaceInfo(models.Model):
     facilities=models.CharField(max_length=100)
     place_photo=models.FileField(upload_to='documents/')
     year = models.CharField(max_length=100,null=True,blank=True)
+    rating=models.DecimalField(max_digits=3, decimal_places=2, default=0.0, null=True, blank=True)
+    total_ratings=models.IntegerField(default=0, null=True, blank=True)
 
 
 class RouteInfo(models.Model):
@@ -110,3 +114,11 @@ class ChangePassword(models.Model):
 class OtpCode(models.Model):
     otp_code=models.CharField(max_length=40,null=True)
     status = models.CharField(max_length=40,null=True)
+
+class Rating(models.Model):
+    customer_id=models.CharField(max_length=40)
+    item_type=models.CharField(max_length=20)  # 'place' or 'resort'
+    item_id=models.IntegerField()
+    rating=models.IntegerField()  # 1-5 stars
+    review=models.TextField(null=True, blank=True)
+    created_at=models.DateTimeField(auto_now_add=True)

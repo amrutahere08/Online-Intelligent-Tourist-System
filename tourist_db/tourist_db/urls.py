@@ -98,6 +98,12 @@ urlpatterns = [
     re_path(r'^google_map/(?P<stype>\w+)/$', views.google_map, name='google_map'),
 
     re_path(r'^place_wise_year/$', views.place_wise_year, name='place_wise_year'),
+    
+    # New features
+    re_path(r'^search_places/$', views.search_places, name='search_places'),
+    re_path(r'^rate_place/(?P<pk>\d+)/$', views.rate_place, name='rate_place'),
+    re_path(r'^rate_resort/(?P<pk>\d+)/$', views.rate_resort, name='rate_resort'),
+    re_path(r'^analytics_dashboard/$', views.analytics_dashboard, name='analytics_dashboard'),
 
 ]
 

@@ -610,3 +610,145 @@ def place_wise_year(request):
         userdict=PlaceInfo.objects.filter(year=year).values()
         return render(request,'place_wise_year_view.html',{'count':count,'userdict':userdict})
     return render(request,'place_wise_year.html',{'userdict':userdict})
+
+
+# Advanced Search Function
+def search_places(request):
+    from touristapp.models import Rating
+    places = PlaceInfo.objects.all()
+    
+    if request.method == "POST":
+        search_query = request.POST.get('search', '')
+        min_price = request.POST.get('min_price', '')
+        max_price = request.POST.get('max_price', '')
+        min_rating = request.POST.get('min_rating', '')
+        
+        if search_query:
+            places = places.filter(tourist_spot__icontains=search_query)
+        
+        if min_price:
+            places = places.filter(offer_cost__gte=min_price)
+        
+        if max_price:
+            places = places.filter(offer_cost__lte=max_price)
+        
+        if min_rating:
+            places = places.filter(rating__gte=min_rating)
+    
+    return render(request, 'search_places.html', {'places': places})
+
+
+# Rating Submission for Places
+def rate_place(request, pk):
+    from touristapp.models import Rating
+    username = request.session.get('username', 'guest')
+    
+    if request.method == "POST":
+        rating_value = int(request.POST.get('rating', 0))
+        review = request.POST.get('review', '')
+        
+        # Save rating
+        Rating.objects.create(
+            customer_id=username,
+            item_type='place',
+            item_id=pk,
+            rating=rating_value,
+            review=review
+        )
+        
+        # Update place average rating
+        place = PlaceInfo.objects.get(id=pk)
+        all_ratings = Rating.objects.filter(item_type='place', item_id=pk)
+        avg_rating = sum([r.rating for r in all_ratings]) / len(all_ratings)
+        place.rating = round(avg_rating, 2)
+        place.total_ratings = len(all_ratings)
+        place.save()
+        
+        return redirect('/placeinfo_view_c/')
+    
+    place = PlaceInfo.objects.get(id=pk)
+    return render(request, 'rate_place.html', {'place': place})
+
+
+# Rating Submission for Resorts
+def rate_resort(request, pk):
+    from touristapp.models import Rating
+    username = request.session.get('username', 'guest')
+    
+    if request.method == "POST":
+        rating_value = int(request.POST.get('rating', 0))
+        review = request.POST.get('review', '')
+        
+        # Save rating
+        Rating.objects.create(
+            customer_id=username,
+            item_type='resort',
+            item_id=pk,
+            rating=rating_value,
+            review=review
+        )
+        
+        # Update resort average rating
+        resort = ResortInfo.objects.get(id=pk)
+        all_ratings = Rating.objects.filter(item_type='resort', item_id=pk)
+        avg_rating = sum([r.rating for r in all_ratings]) / len(all_ratings)
+        resort.rating = round(avg_rating, 2)
+        resort.total_ratings = len(all_ratings)
+        resort.save()
+        
+        return redirect('/resortinfo_view_c/')
+    
+    resort = ResortInfo.objects.get(id=pk)
+    return render(request, 'rate_resort.html', {'resort': resort})
+
+
+# Analytics Dashboard
+def analytics_dashboard(request):
+    from django.db.models import Sum, Count
+    from touristapp.models import Rating
+    
+    # Booking statistics
+    total_bookings = BookInfo.objects.count()
+    accepted_bookings = BookInfo.objects.filter(status='Accepted').count()
+    pending_bookings = BookInfo.objects.filter(status='pending').count()
+    
+    # Revenue statistics
+    total_revenue = 0
+    for booking in BookInfo.objects.all():
+        try:
+            total_revenue += float(booking.total)
+        except:
+            pass
+    
+    paid_revenue = 0
+    for payment in PaymentInfo.objects.all():
+        try:
+            paid_revenue += float(payment.advance_payment)
+        except:
+            pass
+    
+    # Popular destinations
+    popular_places = PlaceInfo.objects.order_by('-rating', '-total_ratings')[:5]
+    popular_resorts = ResortInfo.objects.order_by('-rating', '-total_ratings')[:5]
+    
+    # Customer statistics
+    total_customers = CustomerInfo.objects.count()
+    total_feedback = FeedBackInfo.objects.count()
+    
+    # Recent ratings
+    recent_ratings = Rating.objects.order_by('-created_at')[:10]
+    
+    context = {
+        'total_bookings': total_bookings,
+        'accepted_bookings': accepted_bookings,
+        'pending_bookings': pending_bookings,
+        'total_revenue': total_revenue,
+        'paid_revenue': paid_revenue,
+        'popular_places': popular_places,
+        'popular_resorts': popular_resorts,
+        'total_customers': total_customers,
+        'total_feedback': total_feedback,
+        'recent_ratings': recent_ratings,
+    }
+    
+    return render(request, 'analytics_dashboard.html', context)

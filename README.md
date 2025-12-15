@@ -4,7 +4,6 @@ A comprehensive Django-based web application for managing tourist destinations, 
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![Django](https://img.shields.io/badge/Django-4.2.27-green.svg)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## ✨ Features
 
@@ -209,29 +208,6 @@ The application is fully responsive and works seamlessly on:
 - AI-powered recommendations
 - Virtual tours (360°)
 
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 👨‍💻 Author
-
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/yourusername/TouristSystem/issues).
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📞 Support
-
-For support, email your.email@example.com or create an issue in the repository.
 
 ## 🙏 Acknowledgments
 
@@ -242,7 +218,5 @@ For support, email your.email@example.com or create an issue in the repository.
 - All contributors and testers
 
 ---
-
-**⭐ If you find this project useful, please consider giving it a star!**
 
 Made with ❤️ using Django

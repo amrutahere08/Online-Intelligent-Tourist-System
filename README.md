@@ -5,9 +5,9 @@ A comprehensive Django-based web application for managing tourist destinations, 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![Django](https://img.shields.io/badge/Django-4.2.27-green.svg)
 
-## ✨ Features
+## Features
 
-### 🎯 Core Functionality
+### Core Functionality
 - **Multi-User System**: Role-based access for Admin, Agency, and Users
 - **Tourist Destination Management**: Comprehensive information about Indian tourist spots
 - **Resort Booking System**: Browse and book luxury accommodations
@@ -17,14 +17,14 @@ A comprehensive Django-based web application for managing tourist destinations, 
 - **Customer Feedback**: Rating and review system for places and resorts
 - **Google Maps Integration**: Visual location display and geocoding
 
-### 🆕 Enhanced Features
-- ⭐ **Rating System**: 5-star ratings for destinations and resorts
-- 🔍 **Advanced Search**: Filter by price, location, and rating
-- 📊 **Analytics Dashboard**: Booking statistics and revenue tracking
-- 📱 **Responsive Design**: Mobile-friendly interface
-- 🖼️ **Image Management**: Automatic image sizing and optimization
+###  Enhanced Features
+-  **Rating System**: 5-star ratings for destinations and resorts
+-  **Advanced Search**: Filter by price, location, and rating
+-  **Analytics Dashboard**: Booking statistics and revenue tracking
+-  **Responsive Design**: Mobile-friendly interface
+-  **Image Management**: Automatic image sizing and optimization
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Python 3.8 or higher
@@ -93,7 +93,7 @@ python manage.py runserver
 - `sneha.reddy@gmail.com` / `sneha123`
 - `vikram.singh@gmail.com` / `vikram123`
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 TouristSystem/
@@ -116,7 +116,7 @@ TouristSystem/
 └── README.md                  # This file
 ```
 
-## 🗄️ Database Models
+##  Database Models
 
 - **UserLogin**: Authentication and user types
 - **UserRegistration**: User profile information
@@ -130,7 +130,7 @@ TouristSystem/
 - **FeedBackInfo**: Customer feedback
 - **Rating**: User ratings and reviews
 
-## 🎨 Key Features Breakdown
+##  Key Features Breakdown
 
 ### For Users
 - Browse tourist destinations and resorts
@@ -154,7 +154,7 @@ TouristSystem/
 - Generate reports
 - Manage customer information
 
-## 📊 Sample Data
+##  Sample Data
 
 The system includes comprehensive sample data:
 - **8 Tourist Destinations**: Goa, Kerala, Jaipur, Manali, Agra, Shimla, Udaipur, Varanasi
@@ -163,7 +163,7 @@ The system includes comprehensive sample data:
 - **8 Routes**: Major routes connecting Indian cities
 - **80+ Ratings**: Sample ratings and reviews
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 **Backend:**
 - Django 4.2.27
@@ -181,7 +181,7 @@ The system includes comprehensive sample data:
 - Pillow (Image processing)
 - smtplib (Email notifications)
 
-## 🔒 Security Features
+##  Security Features
 
 - Password hashing
 - Session management
@@ -189,14 +189,14 @@ The system includes comprehensive sample data:
 - SQL injection prevention (Django ORM)
 - File upload validation
 
-## 📱 Responsive Design
+##  Responsive Design
 
 The application is fully responsive and works seamlessly on:
 - Desktop computers
 - Tablets
 - Mobile devices
 
-## 🚧 Future Enhancements
+##  Future Enhancements
 
 ### Planned Features
 - Payment gateway integration (Razorpay/PayU)
@@ -209,7 +209,7 @@ The application is fully responsive and works seamlessly on:
 - Virtual tours (360°)
 
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Django Documentation
 - Bootstrap Framework
